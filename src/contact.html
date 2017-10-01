@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<aside>
+<aside>
 				<div class="menu">
 					<a href="index.html"><h1>Potestas Canti</h1></a>
 					<ul>
@@ -48,10 +48,30 @@
 					</div>
 				</div>
 			</aside>
-			<main class="mainpage">
-				<h1 class="main__h1">Potestas Canti</h1>
-				<h2 class="main__h2">oprawa muzyczna mszy</h2>
-
+			<main class="sidepage">
+				<div class="main__cover">
+				</div>
+				<h2>Skontaktuj się z nami!</h2>
+				<form id="contact" method="POST" action="http://formspree.io/alicial@o2.pl">
+					<div class="name">
+				        <label for="firstname">Imię:</label>
+				        <input type="text" name="firstname" placeholder="Jan" required>
+				        <label for="lastname">Nazwisko:</label>
+				        <input type="text" name="lastname" placeholder="Kowalski" required>
+			        </div>
+					<label for="email">Email: </label>
+  					<input name="email" id="email" placeholder="example@mail.com" type="email" required>
+  					<label for="subject">Temat:</label>
+			        <input type="text" name="subject" required>
+  					<label for="message">Treść: </label>
+				  	<textarea name="message" id="message" required></textarea>
+				  	<input type="hidden" name="_format" value="plain" />
+				  	<input type="hidden" name="_language" value="pl" />
+				  	<input type="text" name="_gotcha" style="display:none" />
+				  	<input type="hidden" name="_subject" value="Nowa wiadomosc na stronie www!" />
+				  	<input type="hidden" name="_next" value="//localhost:3000/thanks.html" />
+				  	<button id="submit-form" type="submit">Wyślij</button>
+				</form>
 			</main>
 		</div>
 		<script src="code.js"></script>

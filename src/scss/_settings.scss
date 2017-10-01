@@ -1,0 +1,15 @@
+$color-text: #5f5964;
+$color-link: #a593e0;
+$color-bg: rgba(217, 218, 233, 0.87);
+$whites: #ffffff;
+$logo_font: 'carolina_mountains_personalRg';
+$extra_font: 'Arimo', sans-serif;
+$main_font: 'Ledger', serif;
+
+@font-face {
+    font-family: 'carolina_mountains_personalRg';
+    src: url('../fonts/carolina_mountains_personal_use-webfont.woff2') format('woff2'),
+         url('../fonts/carolina_mountains_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
