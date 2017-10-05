@@ -6,6 +6,12 @@ $logo_font: 'carolina_mountains_personalRg';
 $extra_font: 'Arimo', sans-serif;
 $main_font: 'Ledger', serif;
 
+$low768: "only screen and (max-width: 768px)";
+$up769: "only screen and (min-width: 769px)";
+$up1024: "only screen and (min-width: 1024px)";
+$up1280: "only screen and (min-width: 1280px))"; 
+
+
 @font-face {
     font-family: 'carolina_mountains_personalRg';
     src: url('../fonts/carolina_mountains_personal_use-webfont.woff2') format('woff2'),

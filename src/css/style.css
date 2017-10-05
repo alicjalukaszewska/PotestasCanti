@@ -24,16 +24,7 @@ h1 {
   font-family: "carolina_mountains_personalRg";
   color: #5f5964;
   text-align: center;
-  font-size: 32pt;
   margin-top: 70px; }
-
-.menu h1:hover {
-  color: #a593e0;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s; }
-
-.menu a:hover {
-  text-decoration: none; }
 
 h2 {
   font-family: "Ledger", serif;
@@ -41,6 +32,9 @@ h2 {
   text-align: center;
   color: #5f5964;
   margin: 20px; }
+
+.nowrap {
+  white-space: nowrap; }
 
 .container {
   box-sizing: border-box;
@@ -50,6 +44,17 @@ h2 {
   position: relative;
   align-items: stretch;
   min-height: 100%; }
+  @media only screen and (max-width: 768px) {
+    .container {
+      flex-direction: column; } }
+  @media only screen and (min-width: 769px) {
+    .container {
+      width: 100%; } }
+  @media only screen and (min-width: 1280px) {
+    .container {
+      width: 1170px;
+      flex-direction: row;
+      justify-content: center; } }
 
 main {
   box-sizing: border-box;
@@ -57,7 +62,8 @@ main {
   padding: 40px;
   background-size: cover;
   background-position: left center;
-  z-index: 1; }
+  z-index: 1;
+  width: 100%; }
   main p {
     width: 80%;
     text-align: center;
@@ -108,40 +114,63 @@ main {
       font-size: 11pt;
       padding-bottom: 5px; }
 
-aside {
-  box-sizing: border-box;
-  background-color: rgba(217, 218, 233, 0.87);
-  display: flex;
-  flex-direction: column; }
-
 .mainpage {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -120px; }
+  margin-top: -120px;
+  width: 100%; }
+  .mainpage h1 {
+    color: #ffffff;
+    font-size: 72pt;
+    text-shadow: 0px 0px 2px #2a262d, 0 0 2em #2a262d, 0 0 0.2em #2a262d;
+    text-align: center; }
+  .mainpage h2 {
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.6rem;
+    color: #ffffff;
+    font-size: 12pt;
+    text-align: center;
+    text-shadow: 1px 1px 2px #2a262d;
+    margin-top: -10px; }
+    .mainpage h2::before, .mainpage h2::after {
+      content: " - "; }
 
-.main__h1 {
-  color: #ffffff;
-  font-size: 72pt;
-  text-shadow: 0px 0px 2px #2a262d, 0 0 2em #2a262d, 0 0 0.2em #2a262d;
-  text-align: center; }
+aside {
+  box-sizing: border-box;
+  background-color: rgba(217, 218, 233, 0.87); }
+  @media only screen and (max-width: 768px) {
+    aside {
+      width: 100%; } }
+  @media only screen and (min-width: 769px) {
+    aside {
+      width: 25%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column; } }
+  @media only screen and (min-width: 1280px) {
+    aside {
+      width: 33%;
+      display: flex;
+      flex-direction: column; } }
 
-.main__h2 {
-  font-family: 'Arial', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.6rem;
-  color: #ffffff;
-  font-size: 12pt;
-  text-align: center;
-  text-shadow: 1px 1px 2px #2a262d;
-  margin-top: -10px; }
+nav h1:hover {
+  color: #a593e0;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s; }
 
-.main__h2::before, .main__h2::after {
-  content: " - "; }
+@media only screen and (min-width: 769px) {
+  nav h1 {
+    font-size: 2.1rem; } }
 
-form {
-  text-align: center; }
+@media only screen and (min-width: 1280px) {
+  nav h1 {
+    font-size: 32pt; } }
+
+nav a:hover {
+  text-decoration: none; }
 
 ul {
   list-style: none;
@@ -150,7 +179,6 @@ ul {
   font-size: 16pt;
   padding: 0;
   border-bottom: 1px solid #5f5964;
-  width: 60%;
   margin: 30px auto; }
   ul li {
     margin: 20px 0 0 0;
@@ -158,21 +186,26 @@ ul {
     border-top: 1px solid #5f5964;
     display: block;
     margin: 0 auto;
-    padding: 10px; }
-  ul a li {
+    padding: 10px;
     color: #5f5964; }
-  ul li:hover, ul a li:focus {
-    color: #a593e0;
-    text-decoration: underline;
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s; }
+    ul li:hover, ul li:focus {
+      color: #a593e0;
+      text-decoration: underline;
+      -webkit-transition: color 0.2s;
+      transition: color 0.2s; }
+  @media only screen and (min-width: 1280px) {
+    ul {
+      width: 60%; } }
 
 a {
   text-decoration: none; }
+  a:hover, a:focus {
+    color: #a593e0;
+    text-decoration: underline; }
 
-a:hover, a:focus {
-  color: #a593e0;
-  text-decoration: underline; }
+.active {
+  text-decoration: underline;
+  color: #5f5964; }
 
 .icons {
   align-self: flex-end;
@@ -186,16 +219,19 @@ a:hover, a:focus {
     background-image: url("../img/facebook.png");
     background-repeat: no-repeat;
     background-position: center; }
-  .icons #facebook-icon:hover {
-    background-image: url("../img/facebook-hover.png"); }
+    .icons #facebook-icon:hover {
+      background-image: url("../img/facebook-hover.png"); }
   .icons #youtube-icon {
     width: 64px;
     height: 64px;
     background-image: url("../img/youtube.png");
     background-repeat: no-repeat;
     background-position: center; }
-  .icons #youtube-icon:hover {
-    background-image: url("../img/youtube-hover.png"); }
+    .icons #youtube-icon:hover {
+      background-image: url("../img/youtube-hover.png"); }
+
+form {
+  text-align: center; }
 
 #contact {
   width: 80%;
@@ -208,20 +244,19 @@ a:hover, a:focus {
 label {
   padding: 5px; }
 
+textarea {
+  height: 200px; }
+
 input, textarea {
   padding: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
   border: solid 1px #a593e0; }
-
-textarea {
-  height: 200px; }
-
-input:hover, textarea:hover {
-  background-color: #F5F5F5;
-  -webkit-transition: background-color 1s;
-  transition: background-color 0.5s, border 0.5s;
-  border: solid 1px #5f5964; }
+  input:hover, textarea:hover {
+    background-color: #F5F5F5;
+    -webkit-transition: background-color 1s;
+    transition: background-color 0.5s, border 0.5s;
+    border: solid 1px #5f5964; }
 
 #submit-form {
   padding: 10px;
@@ -231,36 +266,7 @@ input:hover, textarea:hover {
   color: #ffffff;
   font-weight: bold;
   border-radius: 5px; }
-
-#submit-form:hover {
-  background-color: #a593e0;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s; }
-
-@media (max-width: 768px) {
-  .container {
-    width: 100%; } }
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    width: 100%; } }
-
-@media (min-width: 1025px) {
-  .container {
-    width: 1170px;
-    flex-direction: row;
-    justify-content: flex-start; } }
-
-@media (min-width: 1280px) {
-  .container {
-    width: 1170px;
-    flex-direction: row; }
-  .mainpage {
-    animation-name: fadein;
-    animation-duration: 5s; }
-  aside {
-    width: 33%;
-    animation-duration: 2s;
-    animation-name: slidein; }
-  main {
-    width: 100%; } }
+  #submit-form:hover {
+    background-color: #a593e0;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s; }
