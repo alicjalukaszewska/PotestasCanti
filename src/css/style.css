@@ -4,6 +4,24 @@
   font-weight: normal;
   font-style: normal; }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
+
+@keyframes stretchText {
+  0% {
+    letter-spacing: 0rem;
+    opacity: 0; }
+  100% {
+    letter-spacing: 0.6rem;
+    opacity: 1; } }
+
 html, body, h1, h2 {
   margin: 0;
   padding: 0; }
@@ -46,7 +64,8 @@ h2 {
   min-height: 100%; }
   @media only screen and (max-width: 768px) {
     .container {
-      flex-direction: column; } }
+      flex-direction: column;
+      justify-content: flex-start; } }
   @media only screen and (min-width: 769px) {
     .container {
       width: 100%; } }
@@ -64,10 +83,16 @@ main {
   background-position: left center;
   z-index: 1;
   width: 100%; }
+  @media only screen and (min-width: 769px) {
+    main {
+      animation-name: fadeIn;
+      animation-duration: 1s; } }
   main p {
     width: 80%;
     text-align: center;
-    margin: 5px auto; }
+    margin: 5px auto;
+    animation-name: fadeIn;
+    animation-duration: 1s; }
   main .main__cover {
     background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
@@ -121,11 +146,16 @@ main {
   justify-content: center;
   margin-top: -120px;
   width: 100%; }
+  @media only screen and (max-width: 768px) {
+    .mainpage {
+      margin-top: 0; } }
   .mainpage h1 {
     color: #ffffff;
     font-size: 72pt;
     text-shadow: 0px 0px 2px #2a262d, 0 0 2em #2a262d, 0 0 0.2em #2a262d;
-    text-align: center; }
+    text-align: center;
+    animation-name: fadeIn;
+    animation-duration: 2s; }
   .mainpage h2 {
     font-family: 'Arial', sans-serif;
     text-transform: uppercase;
@@ -134,7 +164,9 @@ main {
     font-size: 12pt;
     text-align: center;
     text-shadow: 1px 1px 2px #2a262d;
-    margin-top: -10px; }
+    margin-top: -10px;
+    animation-name: stretchText;
+    animation-duration: 2s; }
     .mainpage h2::before, .mainpage h2::after {
       content: " - "; }
 
@@ -186,7 +218,7 @@ ul {
     border-top: 1px solid #5f5964;
     display: block;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px 0;
     color: #5f5964; }
     ul li:hover, ul li:focus {
       color: #a593e0;
@@ -270,3 +302,34 @@ input, textarea {
     background-color: #a593e0;
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s; }
+
+@media only screen and (max-width: 768px) {
+  .head {
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; }
+    .head h1 {
+      font-size: 7vw;
+      margin: 0; } }
+
+@media only screen and (max-width: 768px) {
+  .dropdown {
+    display: none; }
+    .dropdown + .activateDropdown {
+      animation-name: showDropdown;
+      animation-duration: 5s; } }
+
+.navbar-toggle {
+  border: 0;
+  background: none;
+  color: #5f5964; }
+  .navbar-toggle span {
+    font-size: 22pt;
+    padding: 5px 10px;
+    margin: 10px; }
+  .navbar-toggle:hover {
+    color: #a593e0; }
+  @media only screen and (min-width: 769px) {
+    .navbar-toggle {
+      display: none; } }

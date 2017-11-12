@@ -51,6 +51,7 @@ h2 {
 
 	@media #{$low768}{
 		flex-direction: column;
+		justify-content: flex-start;
 	}
 
 	@media #{$up769}{
@@ -72,11 +73,15 @@ main {
 	background-position: left center;
 	z-index: 1;
 	width: 100%;
+	@media #{$up769}{
+		@include fadeInFaster;
+	}
 
 	p {
 		width: 80%;
 		text-align: center;
 		margin: 5px auto;
+		@include fadeInFaster;
 	}
 
 	.main__cover {
@@ -145,12 +150,16 @@ main {
 	justify-content: center;
 	margin-top: -120px;
 	width: 100%;
+	@media #{$low768}{
+		margin-top: 0;
+	}
 
 	h1 {
 	    color: $whites;
 	    font-size: 72pt;
 		text-shadow: 0px 0px 2px #2a262d, 0 0 2em #2a262d, 0 0 0.2em #2a262d;
 		text-align: center;
+		@include fadeIn;
 	}
 
 	h2 {
@@ -162,6 +171,8 @@ main {
 		text-align: center;
 		text-shadow: 1px 1px 2px #2a262d;
 		margin-top: -10px;
+		@include stretchText;
+
 
 		&::before, &::after {
 			content: " - "
@@ -222,14 +233,13 @@ ul {
 	border-bottom: 1px solid $color-text;
 	margin: 30px auto;
 
-
 	li {
 		margin: 20px 0 0 0;
 		font-family: $main_font;
 		border-top: 1px solid $color-text;
 		display: block;
 		margin: 0 auto;
-		padding: 10px;
+		padding: 10px 0;
 		color: $color-text;
 
 		&:hover, &:focus {
@@ -346,5 +356,51 @@ input, textarea {
 	background-color: $color-link;
 	-webkit-transition: background-color 0.2s; 
 	transition: background-color 0.2s;
+	}
+}
+
+//navbar-xs
+
+.head {
+	@media #{$low768}{
+		padding: 30px;
+		display: flex; 
+		justify-content: space-around;
+		align-items: flex-start;
+	h1 {
+		font-size: 7vw;
+		margin: 0;
+		// line-height: 0;
+		}
+	}	
+}
+
+.dropdown {
+	@media #{$low768}{
+		display: none;
+
+		& +	.activateDropdown {
+			animation-name: showDropdown;
+			animation-duration: 5s;
+		}
+	}
+}
+
+.navbar-toggle {
+	border: 0;
+	background: none;
+	color: $color-text;
+
+	span {
+		font-size: 22pt;
+		padding: 5px 10px;
+		margin: 10px;
+	}
+	&:hover {
+		color: $color-link;
+	}
+
+	@media #{$up769}{
+		display: none;
 	}
 }
