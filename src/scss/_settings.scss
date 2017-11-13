@@ -8,6 +8,7 @@ $main_font: 'Ledger', serif;
 
 $low768: "only screen and (max-width: 768px)";
 $up769: "only screen and (min-width: 769px)";
+$up769WithMax: "only screen and (min-width: 769px) and (max-width: 1023px)";
 $up1024: "only screen and (min-width: 1024px)";
 $up1280: "only screen and (min-width: 1280px))"; 
 
@@ -60,4 +61,28 @@ $up1280: "only screen and (min-width: 1280px))";
 @mixin stretchText {
 	animation-name: stretchText;
 	animation-duration: 2s;
+}
+
+@keyframes showDropdown {
+    0% {
+        opacity: 0;
+        height: 0;
+        background: transparent;
+    }
+
+    50%{
+        height: 50%;
+        opacity: 0.8;
+    }
+
+    100% {
+        height: 100%;
+        opacity: 1;
+        background: inherit;
+    }
+}
+
+@mixin showDropdown {
+    animation-name: showDropdown;
+    animation-duration: 1.5s;
 }

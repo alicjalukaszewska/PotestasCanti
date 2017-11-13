@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'carolina_mountains_personalRg';
   src: url("../fonts/carolina_mountains_personal_use-webfont.woff2") format("woff2"), url("../fonts/carolina_mountains_personal_use-webfont.woff") format("woff");
@@ -22,7 +23,20 @@
     letter-spacing: 0.6rem;
     opacity: 1; } }
 
-html, body, h1, h2 {
+@keyframes showDropdown {
+  0% {
+    opacity: 0;
+    height: 0;
+    background: transparent; }
+  50% {
+    height: 50%;
+    opacity: 0.8; }
+  100% {
+    height: 100%;
+    opacity: 1;
+    background: inherit; } }
+
+* {
   margin: 0;
   padding: 0; }
 
@@ -112,6 +126,9 @@ main {
 .main__aboutus {
   width: 90%;
   margin: 0 auto; }
+  @media only screen and (max-width: 768px) {
+    .main__aboutus {
+      text-align: center; } }
   .main__aboutus img {
     float: left;
     width: 200px;
@@ -125,19 +142,59 @@ main {
     /* Google Chrome, Safari 6+ & Opera 15+ */
     filter: grayscale(1);
     /* Microsoft Edge and Firefox 35+ */ }
+    @media only screen and (min-width: 769px) and (max-width: 1023px) {
+      .main__aboutus img {
+        margin: 10px 20px; } }
+    @media only screen and (max-width: 768px) {
+      .main__aboutus img {
+        float: inherit;
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        margin: 30px auto 20px; } }
   .main__aboutus div {
     height: auto;
     overflow: auto; }
+    @media only screen and (min-width: 769px) and (max-width: 1023px) {
+      .main__aboutus div {
+        overflow: inherit; } }
+    @media only screen and (max-width: 768px) {
+      .main__aboutus div {
+        width: 100%; } }
     .main__aboutus div h3 {
       font-variant: small-caps;
       text-align: left;
-      margin: 50px auto 10px; }
+      margin: 60px auto 10px; }
+      @media only screen and (max-width: 768px) {
+        .main__aboutus div h3 {
+          text-align: center;
+          margin: 0; } }
     .main__aboutus div p {
       text-align: left;
       width: 90%; }
+      @media only screen and (max-width: 768px) {
+        .main__aboutus div p {
+          text-align: center; } }
     .main__aboutus div .caption {
       font-size: 11pt;
       padding-bottom: 5px; }
+
+.main__repertoire {
+  width: 90%;
+  margin: 0 auto; }
+  .main__repertoire ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0; }
+  .main__repertoire li {
+    padding-left: 1em;
+    padding-top: 1em;
+    text-indent: -1em;
+    animation-name: fadeIn;
+    animation-duration: 1s; }
+    .main__repertoire li:before {
+      content: "♪";
+      padding-right: 7px; }
 
 .mainpage {
   box-sizing: border-box;
@@ -204,7 +261,7 @@ nav h1:hover {
 nav a:hover {
   text-decoration: none; }
 
-ul {
+nav ul {
   list-style: none;
   text-transform: uppercase;
   text-align: center;
@@ -212,7 +269,7 @@ ul {
   padding: 0;
   border-bottom: 1px solid #5f5964;
   margin: 30px auto; }
-  ul li {
+  nav ul li {
     margin: 20px 0 0 0;
     font-family: "Ledger", serif;
     border-top: 1px solid #5f5964;
@@ -220,13 +277,13 @@ ul {
     margin: 0 auto;
     padding: 10px 0;
     color: #5f5964; }
-    ul li:hover, ul li:focus {
+    nav ul li:hover, nav ul li:focus {
       color: #a593e0;
       text-decoration: underline;
       -webkit-transition: color 0.2s;
       transition: color 0.2s; }
   @media only screen and (min-width: 1280px) {
-    ul {
+    nav ul {
       width: 60%; } }
 
 a {
@@ -315,21 +372,22 @@ input, textarea {
 
 @media only screen and (max-width: 768px) {
   .dropdown {
-    display: none; }
-    .dropdown + .activateDropdown {
-      animation-name: showDropdown;
-      animation-duration: 5s; } }
+    display: none;
+    animation-name: showDropdown;
+    animation-duration: 1.5s; }
+    .dropdown ul {
+      margin: 0 auto; } }
 
 .navbar-toggle {
   border: 0;
-  background: none;
-  color: #5f5964; }
-  .navbar-toggle span {
-    font-size: 22pt;
-    padding: 5px 10px;
-    margin: 10px; }
-  .navbar-toggle:hover {
-    color: #a593e0; }
+  background: none; }
+  .navbar-toggle div {
+    width: 35px;
+    height: 5px;
+    background-color: #5f5964;
+    margin: 6px 0; }
+  .navbar-toggle:hover div {
+    background-color: #a593e0; }
   @media only screen and (min-width: 769px) {
     .navbar-toggle {
       display: none; } }

@@ -12,11 +12,14 @@ function showNavbar() {
 	let display = window.getComputedStyle(dropdown,null).getPropertyValue("display");
 	if (display === 'none'){
 		dropdown.style.display = 'block';
-		dropdown.classList.add('activateDropdown');
 	} else {
 		dropdown.style.display = 'none';
-		dropdown.classList.remove('activateDropdown');
 	}
 }
 
 navbarToggleBtn.addEventListener('click', showNavbar);
+window.addEventListener('resize', () => {
+	if (window.innerWidth >= 768){
+		dropdown.style.display = 'block';
+	}
+})
