@@ -216,8 +216,9 @@ main {
   width: 100%; }
   @media only screen and (max-width: 768px) {
     .mainpage {
-      margin-top: -100px;
-      flex: 1; } }
+      margin-top: 0;
+      flex: 1;
+      z-index: -1; } }
   .mainpage h1 {
     color: #ffffff;
     font-size: 72pt;
