@@ -259,6 +259,13 @@ main {
 	}
 }
 
+#moreContent {
+		display: none;
+		@media #{$low768}{
+			display: block;
+		}
+}
+
 aside {
 	box-sizing: border-box;
 	background-color: $color-bg;

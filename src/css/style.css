@@ -251,6 +251,12 @@ main {
         .mainpage h2::before, .mainpage h2::after {
           content: none; } }
 
+#moreContent {
+  display: none; }
+  @media only screen and (max-width: 768px) {
+    #moreContent {
+      display: block; } }
+
 aside {
   box-sizing: border-box;
   background-color: rgba(217, 218, 233, 0.87); }
