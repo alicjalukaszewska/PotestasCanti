@@ -34,6 +34,7 @@ h2 {
 	text-align: center;
 	color: $color-text;
 	margin: 20px;
+	@include fadeInFaster;
 }
 
 .nowrap {
@@ -71,16 +72,13 @@ main {
 	padding: 40px;
 	background-size: cover;
 	background-position: left center;
-	z-index: 1;
-	width: 100%;
+    width: 100%;
 
 	@media #{$low768}{
 		padding: 10px;
 		padding-bottom: 80px;
 		width: 100%;
-	}
-	@media #{$up769}{
-		@include fadeInFaster;
+		flex:1;
 	}
 
 	p {
@@ -92,21 +90,11 @@ main {
 			width: 100%;
 		}
 	}
-
-	.main__cover {
-	    background-color: rgba(255, 255, 255, 0.9);
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    z-index: -2;
-	}
 }
 
 .sidepage {
 	background: {
-		image: url("../img/background-sub.jpg");
+		image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/background-sub.jpg");
 	    attachment: fixed;
 	    position: center;
 	    repeat: no-repeat;
@@ -121,7 +109,6 @@ main {
 		text-align: center;
 		width: 100%;
 	}
-
 		img {
 			float: left;
 			width: 200px;
@@ -132,6 +119,7 @@ main {
 			filter: gray; /* IE6-9 */
 			-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 			filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+			@include fadeInFaster;
 			@media #{$up769WithMax}{
 				margin: 10px 20px;
 			}
@@ -154,11 +142,11 @@ main {
 				width: 100%;
 			}
 
-
 			h3 {
 				font-variant: small-caps;
 				text-align: left;
 				margin: 60px auto 10px;
+				@include fadeInFaster;
 				@media #{$low768} {
 					text-align: center;
 					margin: 0;
@@ -192,6 +180,8 @@ main {
 	  list-style: none;
 	  margin-left: 0;
 	  padding-left: 0;
+	  width: 90%;
+	  margin: 0 auto;
 	}
 
 	li {
@@ -395,6 +385,7 @@ a {
 
 form {
 	text-align: center;
+	@include fadeInFaster;
 }
 
 
